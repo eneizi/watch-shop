@@ -8,7 +8,9 @@ export function registration() {
         const renderMain = document.querySelector("#main-content")
         renderMain.innerHTML = `
             <section class="registration-container">
-                <button class="back-to-main">Назад</button>
+                <button class="back-to-main">
+                    <img src="src/assets/icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
+                </button>
             </section>
         `
 

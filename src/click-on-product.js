@@ -1,4 +1,6 @@
 import { produtsData } from './market-data'
+import { renderHome } from './main'
+import { renderAboutCompany } from './about-company'
 
 export function renderProductOnClick() {
     const renderMain = document.querySelector("#main-content")
@@ -13,6 +15,9 @@ export function renderProductOnClick() {
         const product = produtsData.find((item) => item.id == productId)
 
         renderMain.innerHTML = `
+        <button class="back-to-main">
+            <img src="src/assets/icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
+        </button>
         <div class="product-card-block" data-id="${product.id}">
             <img class="product-card-img" src=${product.img}>
             <div class="product-card-info">
@@ -31,5 +36,11 @@ export function renderProductOnClick() {
             </div>
         </div>
         `;
+
+        const backMain = document.querySelector(".back-to-main")
+        backMain.addEventListener("click", () => {
+            renderHome()
+            renderAboutCompany()
+        })
     })
 }
