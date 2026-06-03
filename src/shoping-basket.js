@@ -92,24 +92,19 @@ export function shoppingBasket() {
 
             const productId = removeBtn.dataset.id;
             
-            // Находим индекс элемента в массиве корзины
             const productIndex = productsBasketData.findIndex(item => item.id == productId);
             
             if (productIndex !== -1) {
                 const product = productsBasketData[productIndex];
 
-                // Обновляем общие данные
                 ProductsSum -= product.price;
                 ProductsCount--;
 
-                // Удаляем из массива
                 productsBasketData.splice(productIndex, 1);
 
-                // Удаляем элемент из DOM (находим родительскую карточку)
                 const productCard = removeBtn.closest(".product-in-basket");
                 productCard.remove();
 
-                // Обновляем текст в "Сумма" и "Количество" (находим их в хедере корзины)
                 const summary = document.querySelector(".basket-summary");
                 if (productsBasketData.length > 0) {
                     summary.querySelector("p:nth-child(1)").textContent = `Товаров: ${ProductsCount}шт.`;

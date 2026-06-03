@@ -1,3 +1,3 @@
 export default {
-  base: 'https://github.com/eneizi/watch-shop',
+  base: '/watch-shop/',
 }
