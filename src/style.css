@@ -305,8 +305,8 @@ body {
 
   @media (max-width: 768px) {
     width: 100%;
-    z-index: -100;
     position: static;
+    z-index: auto;
   }
 }
 
@@ -453,9 +453,8 @@ body {
   }
 
   @media (max-width: 468px) {
-    position: sticky;
-    top: 220px;
-    z-index: 100;
+    width: 150px;
+    height: 150px;
   }
 }
 
