@@ -16,7 +16,7 @@ export function renderProductOnClick() {
 
         renderMain.innerHTML = `
         <button class="back-to-main">
-            <img src="src/assets/icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
+            <img src="./icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
         </button>
         <div class="product-card-block" data-id="${product.id}">
             <img class="product-card-img" src=${product.img}>
