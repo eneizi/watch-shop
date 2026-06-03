@@ -7,6 +7,7 @@ body {
 :root {
   --blue: rgb(35, 149, 169);
   --light-blue: rgb(122, 235, 255);
+  --dark-blue: rgb(10, 98, 120);
   --light-gray: rgb(194, 194, 194);
   --white: #fff;
   --red: rgb(235, 85, 85);
@@ -422,6 +423,11 @@ body {
   display: flex;
   padding: 0.5rem;
   justify-content: center;
+  margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 }
 
 .product-card-info {
@@ -490,18 +496,82 @@ body {
 .registration-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 80vh;
+
+  @media (max-width: 1150px) {
+    margin-top: 2rem;
+    justify-content: flex-start;
+  }
+}
+
+.registration-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--blue);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.365);
+  width: 30%;
+
+  @media (max-width: 1650px) {
+    width: 40%;
+  }
+
+  @media (max-width: 1150px) {
+    width: 50%;
+  }
+  
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+}
+
+label {
+  color: var(--font-white);
+}
+
+.login-inp,
+.pass-inp {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+.login-inp:focus,
+.pass-inp:focus {
+  outline: 3px solid var(--light-blue);
+}
+
+.aprove-registration {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  color: var(--font-white);
+  background-color: var(--dark-blue);
+}
+
+.aprove-registration:hover {
+  background-color: var(--green);
+  cursor: pointer;
 }
 
 /* back-to-main-btn */
 
 .back-to-main {
-  margin-top: 1rem;
-  margin-left: 6rem;
+  display: none;
+  margin: 0.5rem 1rem;
   border-radius: 1rem;
   padding: 0.25rem;
   background-color: inherit;
   border: none;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
