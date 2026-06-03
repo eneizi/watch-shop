@@ -30,7 +30,7 @@
         </div>
     `)}function i(){document.querySelector(`#registration`).addEventListener(`click`,()=>{let e=document.querySelector(`#main-content`);e.innerHTML=`
         <button class="back-to-main">
-            <img src="src/assets/icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
+            <img src="./icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
         </button>
         <section class="registration-container">
             <div class="registration-block">
@@ -45,7 +45,7 @@
         </section>
         `,document.querySelector(`.back-to-main`).addEventListener(`click`,()=>{c(),r()})})}function a(){let t=document.querySelector(`#main-content`);document.addEventListener(`click`,n=>{if(n.target.closest(`.buy-product`))return;let i=n.target.closest(`.product-block`);if(!i)return;let a=i.dataset.id,o=e.find(e=>e.id==a);t.innerHTML=`
         <button class="back-to-main">
-            <img src="src/assets/icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
+            <img src="./icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
         </button>
         <div class="product-card-block" data-id="${o.id}">
             <img class="product-card-img" src=${o.img}>
