@@ -12,8 +12,8 @@ export function registration() {
         </button>
         <section class="registration-container">
             <div class="registration-block">
-                <label for="login">Введите email:</label>
-                <input class="login-inp" id="login" type="email" placeholder="Логин">
+                <label for="email">Введите email:</label>
+                <input class="email-inp" id="email" type="email" placeholder="Email">
                 <label for="login">Введите логин:</label>
                 <input class="login-inp" id="login" type="text" placeholder="Логин">
                 <label for="login">Введите пароль:</label>

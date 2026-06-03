@@ -1,4 +1,4 @@
-export const produtsData = [
+export const productsData = [
     {
         img: "./site-produts/T1374101104100.jpg",
         name: "Tissot",

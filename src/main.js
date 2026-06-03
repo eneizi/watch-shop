@@ -1,7 +1,7 @@
 import './style.css'
 import "./style-reset.css"
-import { produtsData } from './market-data'
-import { shoppingBasket } from './shoping-basket'
+import { productsData } from './market-data'
+import { shoppingBasket } from './shopping-basket'
 import { renderNews } from './render-news'
 import { registration } from './registration'
 import { renderAboutCompany } from './about-company'
@@ -19,8 +19,8 @@ export function renderHome() {
 
   const produtsContainer = document.querySelector("#products")
 
-  for (let i = 0; i < produtsData.length; i++) {
-    const product = produtsData[i]
+  for (let i = 0; i < productsData.length; i++) {
+    const product = productsData[i]
     const html = `
         <div class="product-block" data-id="${product.id}">
           <div class="product-btn-container">
@@ -38,7 +38,7 @@ export function renderHome() {
   const input = document.querySelector("#search")
   input.addEventListener("input", (event) => {
     const searchValue = event.target.value.toLowerCase()
-    const filtered = produtsData.filter((product) =>
+    const filtered = productsData.filter((product) =>
       product.name.toLowerCase().includes(searchValue)
     )
 

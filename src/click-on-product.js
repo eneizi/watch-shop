@@ -1,4 +1,4 @@
-import { produtsData } from './market-data'
+import { productsData } from './market-data'
 import { renderHome } from './main'
 import { renderAboutCompany } from './about-company'
 
@@ -12,7 +12,7 @@ export function renderProductOnClick() {
         if (!block) return
 
         const productId = block.dataset.id
-        const product = produtsData.find((item) => item.id == productId)
+        const product = productsData.find((item) => item.id == productId)
 
         renderMain.innerHTML = `
         <button class="back-to-main">

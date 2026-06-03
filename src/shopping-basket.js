@@ -1,4 +1,4 @@
-import { produtsData } from './market-data'
+import { productsData } from './market-data'
 
 export function shoppingBasket() {
     const basketBtn = document.querySelector("#shopping-basket")
@@ -16,7 +16,7 @@ export function shoppingBasket() {
         if (!btn) return
 
         const productId = btn.dataset.id
-        const product = produtsData.find((item) => item.id == productId)
+        const product = productsData.find((item) => item.id == productId)
 
         const alreadyInBasket = productsBasketData.find((item) => item.id == productId)
         if (alreadyInBasket) return // проверка есть ли товар в корзине

@@ -503,7 +503,6 @@ body {
   @media (max-width: 1150px) {
     margin-top: 2rem;
     justify-content: flex-start;
-    height: 100%;
   }
 }
 
@@ -536,14 +535,16 @@ label {
 }
 
 .login-inp,
-.pass-inp {
+.pass-inp,
+.email-inp {
   padding: 0.5rem;
   border-radius: 1rem;
   border: none;
 }
 
 .login-inp:focus,
-.pass-inp:focus {
+.pass-inp:focus,
+.email-inp:focus {
   outline: 3px solid var(--light-blue);
 }
 
