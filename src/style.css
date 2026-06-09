@@ -499,6 +499,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 80vh;
+  margin: 0.7rem;
 
   @media (max-width: 1150px) {
     margin-top: 2rem;
@@ -527,7 +528,44 @@ body {
   @media (max-width: 768px) {
     width: 90%;
   }
+}
 
+/* registration buttons */
+
+.log-in-btn {
+  border: none;
+  background-color: inherit;
+  color: var(--font-white);
+}
+
+.log-in-btn:hover {
+  cursor: pointer;
+  color: var(--light-blue);
+}
+
+.logout-btn {
+  background-color: var(--blue);
+  color: var(--font-white);
+  border-radius: var(--main-border-radius);
+  margin-top: 1rem;
+  border: none;
+  font-size: .875rem;
+  padding: .5rem;
+}
+
+.logout-btn:hover {
+  color: var(--white);
+  background-color: var(--red);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.is-input-error {
+  color: var(--font-white);
+  background-color: var(--red);
+  padding: 0.2rem;
+  border-radius: var(--main-border-radius);
+  text-align: center;
 }
 
 label {
@@ -546,6 +584,10 @@ label {
 .pass-inp:focus,
 .email-inp:focus {
   outline: 3px solid var(--light-blue);
+}
+
+.email-inp--valid {
+  outline: 3px solid var(--green) !important;
 }
 
 .aprove-registration {
