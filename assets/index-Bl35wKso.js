@@ -28,22 +28,39 @@
                 <p class="about-company-promotion">Действуют скидки</p>
             </div>
         </div>
-    `)}function i(){document.querySelector(`#registration`).addEventListener(`click`,()=>{let e=document.querySelector(`#main-content`);e.innerHTML=`
-        <button class="back-to-main">
-            <img src="./icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
-        </button>
-        <section class="registration-container">
-            <div class="registration-block">
-                <label for="email">Введите email:</label>
-                <input class="email-inp" id="email" type="email" placeholder="Email">
-                <label for="login">Введите логин:</label>
-                <input class="login-inp" id="login" type="text" placeholder="Логин">
-                <label for="login">Введите пароль:</label>
-                <input class="pass-inp" type="password" placeholder="Пароль">
-                <button class="aprove-registration">Подтвердить</button>
-            </div>
-        </section>
-        `,document.querySelector(`.back-to-main`).addEventListener(`click`,()=>{c(),r()})})}function a(){let t=document.querySelector(`#main-content`);document.addEventListener(`click`,n=>{if(n.target.closest(`.buy-product`))return;let i=n.target.closest(`.product-block`);if(!i)return;let a=i.dataset.id,o=e.find(e=>e.id==a);t.innerHTML=`
+    `)}function i(){let e=document.querySelector(`#email`),t=e.value.trim();if(!t)return e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Поле не может быть пустым</span>`);if(t.length>25)return e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Длина не должна превышать 25 символов</span>`);if(!t.includes(`@`)||!t.includes(`.`))return e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Введённые данные не являются email</span>`);let[n,r]=t.split(`@`);return/^[A-Za-z0-9._%+-]+$/.test(n)?/^[A-Za-z0-9.-]+$/.test(r)?e.value:e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Домен email содержит недопустимые символы</span>`):e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Логин email содержит недопустимые символы</span>`)}function a(){let e=document.querySelector(`#password`),t=e.value.trim();return t?t.length>25||t.length<5?e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Длина не корректна</span>`):/^[A-Za-z0-9]+$/.test(t)?e.value:e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Пароль содержит недопустимые символы</span>`):e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Поле не может быть пустым</span>`)}function o(){let e=document.querySelector(`#login`),t=e.value.trim();return t?t.length>25||t.length<5?e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Длина не корректна</span>`):/^[A-Za-z0-9]+$/.test(t)?e.value:e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Логин содержит недопустимые символы</span>`):e.insertAdjacentHTML(`afterend`,`<span class="is-input-error">Поле не может быть пустым</span>`)}function s(e){e.innerHTML=`
+        <form class="registration-block">
+            <label for="email">Введите email:</label>
+            <input class="email-inp" id="email" type="email" placeholder="Email@email.com" autocomplete="email">
+            <label for="login">Введите логин:</label>
+            <input class="login-inp" id="login" type="text" placeholder="Логин" autocomplete="username">
+            <label for="password">Введите пароль:</label>
+            <input class="pass-inp" id="password" type="password" placeholder="Пароль" autocomplete="new-password">
+            <button type="button" id="aprove-registration" class="aprove-registration">Подтвердить</button>
+            <button type="button" id="log-in-btn" class="log-in-btn">Уже зарегистрированы? Войти</button>
+        </form>
+    `,document.querySelector(`#aprove-registration`).addEventListener(`click`,()=>{document.querySelectorAll(`.is-input-error`).forEach(e=>e.remove());let t=i(),n=o(),r=a();if(typeof t!=`string`||typeof n!=`string`||typeof r!=`string`)return;let c={Email:t,Login:n,Password:r};localStorage.setItem(`userData`,JSON.stringify(c)),u(e,c),document.querySelector(`#logout-btn`).addEventListener(`click`,()=>{s(e)})}),document.querySelector(`#log-in-btn`).addEventListener(`click`,()=>{c(e)})}function c(e){e.innerHTML=`
+        <form class="registration-block">
+            <label for="login">Введите логин:</label>
+            <input class="login-inp" id="login" type="text" placeholder="Логин" autocomplete="username">
+            <label for="password">Введите пароль:</label>
+            <input class="pass-inp" id="password" type="password" placeholder="Пароль" autocomplete="current-password">
+            <button type="button" id="aprove-login" class="aprove-registration">Войти</button>
+            <button type="button" id="registration-btn" class="log-in-btn">Нет аккаунта? Зарегистрироваться</button>
+        </form>
+    `,document.querySelector(`#aprove-login`).addEventListener(`click`,()=>{document.querySelectorAll(`.is-input-error`).forEach(e=>e.remove());let t=o(),n=a();if(typeof t!=`string`||typeof n!=`string`)return;let r=localStorage.getItem(`userData`);if(!r)return e.innerHTML=`<p>Пользователь не найден</p>`;let i=JSON.parse(r);i.Login===t&&i.Password===n?(u(e,i),document.querySelector(`#logout-btn`).addEventListener(`click`,()=>{s(e)})):e.innerHTML=`<p>Неверный логин или пароль</p>`}),document.querySelector(`#registration-btn`).addEventListener(`click`,()=>{s(e)})}function l(){let e=document.querySelector(`#registration`);e.dataset.listenerAdded||(e.dataset.listenerAdded=`true`,e.addEventListener(`click`,()=>{let e=document.querySelector(`#main-content`);e.innerHTML=`
+            <button class="back-to-main">
+                <img src="./icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
+            </button>
+            <section class="registration-container"></section>
+        `;let t=document.querySelector(`.registration-container`),n=localStorage.getItem(`userData`);n?u(t,JSON.parse(n)):s(t),document.querySelector(`.back-to-main`).addEventListener(`click`,()=>{m(),r()})}))}function u(e,t){e.innerHTML=`
+        <div class="success-block">
+            <h2>Добро пожаловать, ${t.Login}!</h2>
+            <p>Email: ${t.Email}</p>
+            <button type="button" id="logout-btn" class="logout-btn">Выйти</button>
+            <button type="button" id="remove-account" class="logout-btn">Удалить аккаунт</button>
+        </div>
+    `,document.querySelector(`#logout-btn`).addEventListener(`click`,()=>{s(e)}),document.querySelector(`#remove-account`).addEventListener(`click`,()=>{s(e),localStorage.removeItem(`userData`)})}function d(){let t=document.querySelector(`#main-content`);document.addEventListener(`click`,n=>{if(n.target.closest(`.buy-product`))return;let i=n.target.closest(`.product-block`);if(!i)return;let a=i.dataset.id,o=e.find(e=>e.id==a);t.innerHTML=`
         <button class="back-to-main">
             <img src="./icons/arrow_arrows_back_direction_left_navigation_right.svg" width="35px" height="35px">
         </button>
@@ -64,7 +81,7 @@
                 </p>
             </div>
         </div>
-        `,document.querySelector(`.back-to-main`).addEventListener(`click`,()=>{c(),r()})})}var o=document.querySelector(`#render-main`),s=document.querySelector(`#main-content`);function c(){s.innerHTML=`
+        `,document.querySelector(`.back-to-main`).addEventListener(`click`,()=>{m(),r()})})}var f=document.querySelector(`#render-main`),p=document.querySelector(`#main-content`);function m(){p.innerHTML=`
     <section class="products-news" id="news"></section>
     <section class="about-us" id="about-company"></section>
     <section class="products-container" id="products"></section>
@@ -87,4 +104,4 @@
             <h3 class="product-name">${e.name}</h3>
             <p class="product-price">${e.price}руб.</p>
           </div>
-      `;t.insertAdjacentHTML(`beforeend`,n)})})}o.addEventListener(`click`,e=>{e.preventDefault(),c(),r()}),c(),r(),a(),n(),i(),t();
+      `;t.insertAdjacentHTML(`beforeend`,n)})})}f.addEventListener(`click`,e=>{e.preventDefault(),m(),r()}),m(),r(),d(),n(),l(),t();
